@@ -1,258 +1,558 @@
-<!DOCTYPE html>                                                                                                                                                                                                                                                          <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deepthi R | CSE Portfolio</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Deepthi R | CSE Portfolio</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        rel="stylesheet">
 
 </head>
 
+
 <body>
 
-<!-- Navigation -->
 
-<header>
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
 
-<div class="logo">
-Deepthi<span> R</span>
-</div>
+    <header>
 
-<nav>
+        <div class="logo">
+            Deepthi<span> R</span>
+        </div>
 
-<ul>
 
-<li><a href="#home">Home</a></li>
+        <!-- Mobile Menu Button -->
 
-<li><a href="#about">About</a></li>
+        <button class="menu-btn" id="menuBtn">
 
-<li><a href="#skills">Skills</a></li>
+            <i class="fa-solid fa-bars"></i>
 
-<li><a href="#projects">Projects</a></li>
+        </button>
 
-<li><a href="#contact">Contact</a></li>
 
-</ul>
+        <nav id="navbar">
 
-</nav>
+            <ul>
 
-</header>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
 
-<!-- Hero Section -->
+                <li>
+                    <a href="#about">About</a>
+                </li>
 
-<section id="home" class="hero">
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
 
-<div class="hero-text">
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
 
-<h3>Hello, I'm</h3>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
 
-<h1>Deepthi R</h1>
+            </ul>
 
-<h2>Computer Science & Engineering Student</h2>
+        </nav>
 
-<p>
+    </header>
 
-Passionate about Web Development, Software Engineering and Problem Solving.
 
-Currently building modern websites and continuously improving my technical skills.
 
-</p>
+    <!-- =========================
+         HOME / HERO SECTION
+    ========================== -->
 
+    <section id="home" class="hero">
 
-<div class="hero-image">
+        <div class="hero-container">
 
-<img src="images/photo.jpeg" alt="photo">
 
-</div>
+            <!-- Hero Text -->
 
-</section>
+            <div class="hero-text">
 
-<!-- About -->
+                <p class="hello">
+                    Hello, I'm
+                </p>
 
-<section id="about">
 
-<h2 class="title">About Me</h2>
+                <h1>
+                    Deepthi R
+                </h1>
 
-<div class="about-box">
 
-<p>
+                <h2>
+                    Computer Science & Engineering Student
+                </h2>
 
-I'm Deepthi R, a Computer Science and Engineering student with a strong interest in Front-End Development and Software Engineering.
 
-I enjoy creating attractive, responsive and user-friendly websites using HTML, CSS and JavaScript.
+                <p class="description">
 
-My goal is to become a professional Web Developer and continuously learn new technologies.
+                    Passionate about Web Development, Software Engineering
+                    and Problem Solving.
 
-</p>
+                    Currently building modern websites and continuously
+                    improving my technical skills.
 
-</div>
+                </p>
 
-</section>
 
-<!-- Skills -->
+                <!-- Buttons -->
 
-<section id="skills">
+                <div class="hero-buttons">
 
-<h2 class="title">Technical Skills</h2>
+                    <a href="#projects" class="btn">
 
-<div class="skills">
+                        <i class="fa-solid fa-code"></i>
 
-<div class="card">
+                        View Projects
 
-<i class="fa-brands fa-html5"></i>
+                    </a>
 
-<h3>HTML</h3>
 
-<p>Semantic Website Structure</p>
+                    <a href="#contact" class="btn btn-outline">
 
-</div>
+                        <i class="fa-solid fa-envelope"></i>
 
-<div class="card">
+                        Contact Me
 
-<i class="fa-brands fa-css3-alt"></i>
+                    </a>
 
-<h3>CSS</h3>
+                </div>
 
-<p>Responsive UI Design</p>
 
-</div>
+                <!-- Social Media -->
 
-<div class="card">
+                <div class="social-icons">
 
-<i class="fa-brands fa-js"></i>
+                    <a
+                        href="https://github.com/deepthigowda13"
+                        target="_blank"
+                        aria-label="GitHub">
 
-<h3>JavaScript</h3>
+                        <i class="fa-brands fa-github"></i>
 
-<p>Interactive Web Pages</p>
+                    </a>
 
-</div>
 
-<div class="card">
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
+                        aria-label="LinkedIn">
 
-<i class="fa-solid fa-database"></i>
+                        <i class="fa-brands fa-linkedin"></i>
 
-<h3>SQL</h3>
+                    </a>
 
-<p>Database Management</p>
+                </div>
 
-</div>
+            </div>
 
-<div class="card">
 
-<i class="fa-solid fa-code"></i>
 
-<h3>C Programming</h3>
+            <!-- Hero Image -->
 
-<p>Problem Solving</p>
+            <div class="hero-image">
 
-</div>
+                <img
+                    src="images/photo.jpeg"
+                    alt="Deepthi R">
 
-<div class="card">
+            </div>
 
-<i class="fa-brands fa-java"></i>
+        </div>
 
-<h3>Java</h3>
+    </section>
 
-<p>Object-Oriented Programming</p>
 
-</div>
 
-</div>
+    <!-- =========================
+         ABOUT SECTION
+    ========================== -->
 
-</section>
+    <section id="about" class="section">
 
-<!-- Projects -->
+        <h2 class="section-title">
+            About Me
+        </h2>
 
-<section id="projects">
 
-<h2 class="title">Projects</h2>
+        <div class="about-container">
 
-<div class="project-container">
 
-<div class="project">
+            <div class="about-icon">
 
-<h3>Student Portfolio Website</h3>
+                <i class="fa-solid fa-user"></i>
 
-<p>
+            </div>
 
-Modern responsive portfolio website using HTML, CSS and JavaScript.
 
-</p>
+            <div class="about-box">
 
-</div>
+                <p>
 
-<div class="project">
+                    I'm Deepthi R, a Computer Science and Engineering
+                    student with a strong interest in Front-End Development
+                    and Software Engineering.
 
-<h3>Bank Management System</h3>
+                </p>
 
-<p>
 
-Responsive banking website with login, dashboard and transaction features.
+                <p>
 
-</p>
+                    I enjoy creating attractive, responsive and
+                    user-friendly websites using HTML, CSS and JavaScript.
 
-</div>
+                </p>
 
 
-</div>
+                <p>
 
-</section>
+                    My goal is to become a professional Web Developer
+                    and continuously learn new technologies.
 
-<!-- Contact -->
+                </p>
 
-<section id="contact">
+            </div>
 
-<h2 class="title">Contact Me</h2>
+        </div>
 
-<div class="contact-box">
+    </section>
 
-<p>
 
-<i class="fa-solid fa-envelope"></i>
 
-deepthigowda312@gmail.com
+    <!-- =========================
+         SKILLS SECTION
+    ========================== -->
 
-</p>
+    <section id="skills" class="section">
 
-<p>
+        <h2 class="section-title">
+            Technical Skills
+        </h2>
 
-<i class="fa-brands fa-linkedin"></i>
 
-linkedin.com/in/deepthi-r
+        <div class="skills-container">
 
-</p>
 
-<p>
+            <!-- HTML -->
 
-<i class="fa-solid fa-location-dot"></i>
+            <div class="skill-card">
 
-Karnataka, India
+                <i class="fa-brands fa-html5"></i>
 
-</p>
+                <h3>
+                    HTML
+                </h3>
 
-</div>
+                <p>
+                    Semantic Website Structure
+                </p>
 
-</section>
+            </div>
 
-<footer>
 
-<p>
+            <!-- CSS -->
 
-© 2026 Deepthi R | Computer Science Engineering Student
+            <div class="skill-card">
 
-</p>
+                <i class="fa-brands fa-css3-alt"></i>
 
-</footer>
+                <h3>
+                    CSS
+                </h3>
 
-<script src="script.js"></script>
+                <p>
+                    Responsive UI Design
+                </p>
+
+            </div>
+
+
+            <!-- JavaScript -->
+
+            <div class="skill-card">
+
+                <i class="fa-brands fa-js"></i>
+
+                <h3>
+                    JavaScript
+                </h3>
+
+                <p>
+                    Interactive Web Pages
+                </p>
+
+            </div>
+
+
+            <!-- SQL -->
+
+            <div class="skill-card">
+
+                <i class="fa-solid fa-database"></i>
+
+                <h3>
+                    SQL
+                </h3>
+
+                <p>
+                    Database Management
+                </p>
+
+            </div>
+
+
+            <!-- C -->
+
+            <div class="skill-card">
+
+                <i class="fa-solid fa-code"></i>
+
+                <h3>
+                    C Programming
+                </h3>
+
+                <p>
+                    Problem Solving
+                </p>
+
+            </div>
+
+
+            <!-- Java -->
+
+            <div class="skill-card">
+
+                <i class="fa-brands fa-java"></i>
+
+                <h3>
+                    Java
+                </h3>
+
+                <p>
+                    Object-Oriented Programming
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS SECTION
+    ========================== -->
+
+    <section id="projects" class="section">
+
+        <h2 class="section-title">
+            My Projects
+        </h2>
+
+
+        <div class="projects-container">
+
+
+            <!-- Project 1 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                </div>
+
+
+                <h3>
+                    Student Portfolio Website
+                </h3>
+
+
+                <p>
+
+                    A responsive personal portfolio website created
+                    using HTML, CSS and JavaScript.
+
+                </p>
+
+
+                <a
+                    href="https://github.com/deepthigowda13/portfolio"
+                    target="_blank"
+                    class="project-btn">
+
+                    <i class="fa-brands fa-github"></i>
+
+                    View GitHub
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Project 2 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+                </div>
+
+
+                <h3>
+                    Bank Management System
+                </h3>
+
+
+                <p>
+
+                    A banking management project designed with
+                    login, dashboard and transaction features.
+
+                </p>
+
+
+                <a
+                    href="#"
+                    class="project-btn">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    View Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+
+    <section id="contact" class="section">
+
+        <h2 class="section-title">
+            Contact Me
+        </h2>
+
+
+        <div class="contact-container">
+
+
+            <!-- Email -->
+
+            <div class="contact-card">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <h3>
+                    Email
+                </h3>
+
+                <p>
+                    deepthigowda312@gmail.com
+                </p>
+
+            </div>
+
+
+            <!-- LinkedIn -->
+
+            <div class="contact-card">
+
+                <i class="fa-brands fa-linkedin"></i>
+
+                <h3>
+                    LinkedIn
+                </h3>
+
+                <p>
+                    linkedin.com/in/deepthi-r
+                </p>
+
+            </div>
+
+
+            <!-- Location -->
+
+            <div class="contact-card">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h3>
+                    Location
+                </h3>
+
+                <p>
+                    Karnataka, India
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Deepthi R |
+            Computer Science & Engineering Student
+        </p>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
 
 </body>
 
