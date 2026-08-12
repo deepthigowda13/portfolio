@@ -1,82 +1,100 @@
 // ==========================================
-// 1. MOBILE NAVIGATION MENU
+// 1. MOBILE MENU
 // ==========================================
 
+// Get the menu button
 const menuBtn = document.getElementById("menuBtn");
+
+// Get the navigation links
 const navLinks = document.getElementById("navLinks");
 
-if (menuBtn && navLinks) {
 
-    menuBtn.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
-    });
+// When the menu button is clicked
+menuBtn.addEventListener("click", function () {
 
-    // Close menu when a navigation link is clicked
-    const navItems = navLinks.querySelectorAll("a");
+    // Add or remove the "active" class
+    navLinks.classList.toggle("active");
 
-    navItems.forEach(function (link) {
-        link.addEventListener("click", function () {
-            navLinks.classList.remove("active");
-        });
-    });
-}
-
+});
 
 // ==========================================
 // 2. DARK / LIGHT MODE
 // ==========================================
 
+// Get the theme button
 const themeBtn = document.getElementById("themeBtn");
 
-if (themeBtn) {
 
-    themeBtn.addEventListener("click", function () {
+// When theme button is clicked
+themeBtn.addEventListener("click", function () {
 
-        document.body.classList.toggle("dark");
+    // Add or remove dark mode
+    document.body.classList.toggle("dark");
 
-        if (document.body.classList.contains("dark")) {
-            themeBtn.textContent = "☀️";
-            localStorage.setItem("theme", "dark");
-        } else {
-            themeBtn.textContent = "🌙";
-            localStorage.setItem("theme", "light");
-        }
+
+    // Change the button icon
+    if (document.body.classList.contains("dark")) {
+
+        themeBtn.textContent = "☀️";
+
+    } else {
+
+        themeBtn.textContent = "🌙";
+
+    }
+
+});
+
+// ==========================================
+// 3. CLOSE MOBILE MENU
+// ==========================================
+
+// Get all navigation links
+const links = document.querySelectorAll(".nav-links a");
+
+
+links.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        // Close the menu after clicking a link
+        navLinks.classList.remove("active");
 
     });
 
-    // Remember user's theme
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark");
-        themeBtn.textContent = "☀️";
-    }
-}
-
+});
 
 // ==========================================
-// 3. SMOOTH SCROLLING
+// 4. SMOOTH SCROLLING
 // ==========================================
 
-const scrollLinks = document.querySelectorAll('a[href^="#"]');
+// Get all links that start with #
+const scrollLinks =
+    document.querySelectorAll('a[href^="#"]');
+
 
 scrollLinks.forEach(function (link) {
 
     link.addEventListener("click", function (event) {
 
-        const targetId = this.getAttribute("href");
+        // Stop normal link behaviour
+        event.preventDefault();
 
-        if (targetId === "#") {
-            return;
-        }
 
-        const targetSection = document.querySelector(targetId);
+        // Get the section ID
+        const sectionId =
+            this.getAttribute("href");
 
-        if (targetSection) {
 
-            event.preventDefault();
+        // Find that section
+        const section =
+            document.querySelector(sectionId);
 
-            targetSection.scrollIntoView({
+
+        // Scroll smoothly to the section
+        if (section) {
+
+            section.scrollIntoView({
                 behavior: "smooth"
             });
 
@@ -86,218 +104,205 @@ scrollLinks.forEach(function (link) {
 
 });
 
-
 // ==========================================
-// 4. SCROLL ANIMATION
+// 5. SCROLL ANIMATION
 // ==========================================
 
+// Get elements with animation class
 const animatedElements =
-    document.querySelectorAll(".animate-on-scroll");
-
-if (animatedElements.length > 0) {
-
-    const observer = new IntersectionObserver(
-        function (entries) {
-
-            entries.forEach(function (entry) {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("show");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.15
-        }
+    document.querySelectorAll(
+        ".animate-on-scroll"
     );
 
+// Create an observer
+const observer =
+    new IntersectionObserver(function (entries) {
 
-    animatedElements.forEach(function (element) {
-        observer.observe(element);
-    });
+        entries.forEach(function (entry) {
 
-}
+            // Check if element is visible
+            if (entry.isIntersecting) {
 
+                // Add "show" class
+                entry.target.classList.add("show");
 
-// ==========================================
-// 5. CONTACT FORM VALIDATION
-// ==========================================
-
-const contactForm = document.getElementById("contactForm");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const name =
-            document.getElementById("name");
-
-        const email =
-            document.getElementById("email");
-
-        const message =
-            document.getElementById("message");
-
-
-        let isValid = true;
-
-
-        // Remove old error messages
-
-        document.querySelectorAll(".error-message")
-            .forEach(function (error) {
-                error.textContent = "";
-            });
-
-
-        // Name validation
-
-        if (name && name.value.trim() === "") {
-
-            showError(name, "Please enter your name.");
-
-            isValid = false;
-        }
-
-
-        // Email validation
-
-        if (email) {
-
-            const emailPattern =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (email.value.trim() === "") {
-
-                showError(
-                    email,
-                    "Please enter your email."
-                );
-
-                isValid = false;
-
-            } else if (!emailPattern.test(email.value.trim())) {
-
-                showError(
-                    email,
-                    "Please enter a valid email address."
-                );
-
-                isValid = false;
             }
-        }
 
-
-        // Message validation
-
-        if (message && message.value.trim() === "") {
-
-            showError(
-                message,
-                "Please enter your message."
-            );
-
-            isValid = false;
-        }
-
-
-        // Successful submission
-
-        if (isValid) {
-
-            alert("Message submitted successfully! 😊");
-
-            contactForm.reset();
-
-        }
-
-    });
-
-}
-
-
-// Function to display errors
-
-function showError(input, message) {
-
-    let error = input.parentElement.querySelector(
-        ".error-message"
-    );
-
-    if (!error) {
-
-        error = document.createElement("small");
-
-        error.className = "error-message";
-
-        input.parentElement.appendChild(error);
-    }
-
-    error.textContent = message;
-}
-
-
-// ==========================================
-// 6. BACK TO TOP BUTTON
-// ==========================================
-
-const topButton =
-    document.getElementById("backToTop");
-
-if (topButton) {
-
-    window.addEventListener("scroll", function () {
-
-        if (window.scrollY > 400) {
-
-            topButton.classList.add("show");
-
-        } else {
-
-            topButton.classList.remove("show");
-
-        }
-
-    });
-
-
-    topButton.addEventListener("click", function () {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
         });
 
     });
 
-}
 
+// Watch all animated elements
+animatedElements.forEach(function (element) {
+
+    observer.observe(element);
+
+});
 
 // ==========================================
-// 7. CURRENT YEAR IN FOOTER
+// 6. CONTACT FORM VALIDATION
 // ==========================================
 
-const yearElement =
+// Get contact form
+const contactForm =
+    document.getElementById("contactForm");
+
+
+// When form is submitted
+contactForm.addEventListener("submit", function (event) {
+
+    // Stop form from refreshing the page
+    event.preventDefault();
+
+    // Get input values
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const subject =
+        document.getElementById("subject").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+    // Get error message elements
+    const nameError =
+        document.getElementById("nameError");
+
+    const emailError =
+        document.getElementById("emailError");
+
+    const subjectError =
+        document.getElementById("subjectError");
+
+    const messageError =
+        document.getElementById("messageError");
+
+    const successMessage =
+        document.getElementById("successMessage");
+
+    // Clear old messages
+    nameError.textContent = "";
+    emailError.textContent = "";
+    subjectError.textContent = "";
+    messageError.textContent = "";
+    successMessage.textContent = "";
+
+    // Assume form is correct
+    let valid = true;
+
+    // Check name
+    if (name === "") {
+
+        nameError.textContent =
+            "Please enter your name.";
+
+        valid = false;
+
+    }
+
+    // Check email
+    if (email === "") {
+
+        emailError.textContent =
+            "Please enter your email.";
+
+        valid = false;
+
+    }
+
+    // Check subject
+    if (subject === "") {
+
+        subjectError.textContent =
+            "Please enter a subject.";
+
+        valid = false;
+
+    }
+
+    // Check message
+    if (message === "") {
+
+        messageError.textContent =
+            "Please enter your message.";
+
+        valid = false;
+
+    }
+
+    // If everything is correct
+    if (valid) {
+
+        successMessage.textContent =
+            "Message submitted successfully!";
+
+        // Clear the form
+        contactForm.reset();
+
+    }
+
+});
+
+// ==========================================
+// 7. BACK TO TOP BUTTON
+// ==========================================
+
+// Get back-to-top button
+const backToTop =
+    document.getElementById("backToTop");
+
+
+// Check scrolling
+window.addEventListener("scroll", function () {
+
+    // If user scrolls more than 400px
+    if (window.scrollY > 400) {
+
+        // Show button
+        backToTop.classList.add("show");
+
+    } else {
+
+        // Hide button
+        backToTop.classList.remove("show");
+
+    }
+
+});
+
+// When back-to-top button is clicked
+backToTop.addEventListener("click", function () {
+
+    // Go to top smoothly
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+// ==========================================
+// 8. CURRENT YEAR
+// ==========================================
+
+const currentYear =
     document.getElementById("currentYear");
 
-if (yearElement) {
 
-    yearElement.textContent =
-        new Date().getFullYear();
-
-}
-
+currentYear.textContent =
+    new Date().getFullYear();
 
 // ==========================================
 // JAVASCRIPT LOADED
 // ==========================================
 
-console.log("Portfolio JavaScript loaded successfully!");
+console.log(
+    "JavaScript is working successfully!"
+);
