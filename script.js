@@ -2,37 +2,25 @@
 // 1. MOBILE MENU
 // ==========================================
 
-// Get the menu button
 const menuBtn = document.getElementById("menuBtn");
 
-// Get the navigation links
 const navLinks = document.getElementById("navLinks");
 
-
-// When the menu button is clicked
 menuBtn.addEventListener("click", function () {
 
-    // Add or remove the "active" class
     navLinks.classList.toggle("active");
 
 });
-
 // ==========================================
 // 2. DARK / LIGHT MODE
 // ==========================================
 
-// Get the theme button
 const themeBtn = document.getElementById("themeBtn");
 
-
-// When theme button is clicked
 themeBtn.addEventListener("click", function () {
 
-    // Add or remove dark mode
     document.body.classList.toggle("dark");
 
-
-    // Change the button icon
     if (document.body.classList.contains("dark")) {
 
         themeBtn.textContent = "☀️";
@@ -44,58 +32,56 @@ themeBtn.addEventListener("click", function () {
     }
 
 });
-
 // ==========================================
 // 3. CLOSE MOBILE MENU
 // ==========================================
 
-// Get all navigation links
-const links = document.querySelectorAll(".nav-links a");
+const links =
+    document.querySelectorAll(".nav-links a");
 
 
 links.forEach(function (link) {
 
     link.addEventListener("click", function () {
 
-        // Close the menu after clicking a link
         navLinks.classList.remove("active");
 
     });
 
 });
-
 // ==========================================
 // 4. SMOOTH SCROLLING
 // ==========================================
 
-// Get all links that start with #
 const scrollLinks =
     document.querySelectorAll('a[href^="#"]');
-
 
 scrollLinks.forEach(function (link) {
 
     link.addEventListener("click", function (event) {
 
-        // Stop normal link behaviour
-        event.preventDefault();
-
-
-        // Get the section ID
         const sectionId =
             this.getAttribute("href");
 
 
-        // Find that section
+        // Don't do anything for href="#"
+        if (sectionId === "#") {
+
+            return;
+
+        }
+        event.preventDefault();
+
         const section =
             document.querySelector(sectionId);
 
 
-        // Scroll smoothly to the section
         if (section) {
 
             section.scrollIntoView({
+
                 behavior: "smooth"
+
             });
 
         }
@@ -103,27 +89,22 @@ scrollLinks.forEach(function (link) {
     });
 
 });
-
 // ==========================================
 // 5. SCROLL ANIMATION
 // ==========================================
 
-// Get elements with animation class
 const animatedElements =
     document.querySelectorAll(
         ".animate-on-scroll"
     );
 
-// Create an observer
 const observer =
     new IntersectionObserver(function (entries) {
 
         entries.forEach(function (entry) {
 
-            // Check if element is visible
             if (entry.isIntersecting) {
 
-                // Add "show" class
                 entry.target.classList.add("show");
 
             }
@@ -132,8 +113,6 @@ const observer =
 
     });
 
-
-// Watch all animated elements
 animatedElements.forEach(function (element) {
 
     observer.observe(element);
@@ -143,19 +122,13 @@ animatedElements.forEach(function (element) {
 // ==========================================
 // 6. CONTACT FORM VALIDATION
 // ==========================================
-
-// Get contact form
 const contactForm =
     document.getElementById("contactForm");
 
-
-// When form is submitted
 contactForm.addEventListener("submit", function (event) {
 
-    // Stop form from refreshing the page
     event.preventDefault();
 
-    // Get input values
     const name =
         document.getElementById("name").value.trim();
 
@@ -168,7 +141,6 @@ contactForm.addEventListener("submit", function (event) {
     const message =
         document.getElementById("message").value.trim();
 
-    // Get error message elements
     const nameError =
         document.getElementById("nameError");
 
@@ -185,16 +157,19 @@ contactForm.addEventListener("submit", function (event) {
         document.getElementById("successMessage");
 
     // Clear old messages
+
     nameError.textContent = "";
+
     emailError.textContent = "";
+
     subjectError.textContent = "";
+
     messageError.textContent = "";
+
     successMessage.textContent = "";
 
-    // Assume form is correct
     let valid = true;
-
-    // Check name
+    // NAME
     if (name === "") {
 
         nameError.textContent =
@@ -203,8 +178,7 @@ contactForm.addEventListener("submit", function (event) {
         valid = false;
 
     }
-
-    // Check email
+    // EMAIL
     if (email === "") {
 
         emailError.textContent =
@@ -213,8 +187,7 @@ contactForm.addEventListener("submit", function (event) {
         valid = false;
 
     }
-
-    // Check subject
+    // SUBJECT
     if (subject === "") {
 
         subjectError.textContent =
@@ -223,8 +196,7 @@ contactForm.addEventListener("submit", function (event) {
         valid = false;
 
     }
-
-    // Check message
+    // MESSAGE
     if (message === "") {
 
         messageError.textContent =
@@ -233,51 +205,40 @@ contactForm.addEventListener("submit", function (event) {
         valid = false;
 
     }
+    // SUCCESS
 
-    // If everything is correct
     if (valid) {
 
         successMessage.textContent =
             "Message submitted successfully!";
 
-        // Clear the form
         contactForm.reset();
 
     }
 
 });
-
 // ==========================================
-// 7. BACK TO TOP BUTTON
+// 7. BACK TO TOP
 // ==========================================
 
-// Get back-to-top button
 const backToTop =
     document.getElementById("backToTop");
 
 
-// Check scrolling
 window.addEventListener("scroll", function () {
 
-    // If user scrolls more than 400px
     if (window.scrollY > 400) {
 
-        // Show button
         backToTop.classList.add("show");
 
     } else {
 
-        // Hide button
         backToTop.classList.remove("show");
-
     }
 
 });
-
-// When back-to-top button is clicked
 backToTop.addEventListener("click", function () {
 
-    // Go to top smoothly
     window.scrollTo({
 
         top: 0,
@@ -291,18 +252,15 @@ backToTop.addEventListener("click", function () {
 // ==========================================
 // 8. CURRENT YEAR
 // ==========================================
-
 const currentYear =
     document.getElementById("currentYear");
-
 
 currentYear.textContent =
     new Date().getFullYear();
 
 // ==========================================
-// JAVASCRIPT LOADED
+// 9. JAVASCRIPT CHECK
 // ==========================================
-
 console.log(
-    "JavaScript is working successfully!"
+    "Module 3 + Module 4 JavaScript is working!"
 );
