@@ -3,52 +3,65 @@
 // ==========================================
 
 const menuBtn = document.getElementById("menuBtn");
-
 const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", function () {
+if (menuBtn && navLinks) {
 
-    navLinks.classList.toggle("active");
+    menuBtn.addEventListener("click", function () {
 
-});
+        navLinks.classList.toggle("active");
+
+    });
+
+}
+
+
 // ==========================================
 // 2. DARK / LIGHT MODE
 // ==========================================
 
 const themeBtn = document.getElementById("themeBtn");
 
-themeBtn.addEventListener("click", function () {
+if (themeBtn) {
 
-    document.body.classList.toggle("dark");
+    themeBtn.addEventListener("click", function () {
 
-    if (document.body.classList.contains("dark")) {
+        document.body.classList.toggle("dark");
 
-        themeBtn.textContent = "☀️";
+        if (document.body.classList.contains("dark")) {
 
-    } else {
+            themeBtn.textContent = "☀️";
 
-        themeBtn.textContent = "🌙";
+        } else {
 
-    }
+            themeBtn.textContent = "🌙";
 
-});
+        }
+
+    });
+
+}
+
+
 // ==========================================
 // 3. CLOSE MOBILE MENU
 // ==========================================
 
-const links =
-    document.querySelectorAll(".nav-links a");
-
+const links = document.querySelectorAll(".nav-links a");
 
 links.forEach(function (link) {
 
     link.addEventListener("click", function () {
 
-        navLinks.classList.remove("active");
+        if (navLinks) {
+            navLinks.classList.remove("active");
+        }
 
     });
 
 });
+
+
 // ==========================================
 // 4. SMOOTH SCROLLING
 // ==========================================
@@ -63,25 +76,20 @@ scrollLinks.forEach(function (link) {
         const sectionId =
             this.getAttribute("href");
 
-
-        // Don't do anything for href="#"
-        if (sectionId === "#") {
-
+        // Ignore empty # links
+        if (!sectionId || sectionId === "#") {
             return;
-
         }
-        event.preventDefault();
 
         const section =
             document.querySelector(sectionId);
 
-
         if (section) {
 
+            event.preventDefault();
+
             section.scrollIntoView({
-
                 behavior: "smooth"
-
             });
 
         }
@@ -89,134 +97,150 @@ scrollLinks.forEach(function (link) {
     });
 
 });
+
+
 // ==========================================
 // 5. SCROLL ANIMATION
 // ==========================================
 
 const animatedElements =
-    document.querySelectorAll(
-        ".animate-on-scroll"
-    );
+    document.querySelectorAll(".animate-on-scroll");
 
-const observer =
-    new IntersectionObserver(function (entries) {
+if ("IntersectionObserver" in window) {
 
-        entries.forEach(function (entry) {
+    const observer =
+        new IntersectionObserver(function (entries) {
 
-            if (entry.isIntersecting) {
+            entries.forEach(function (entry) {
 
-                entry.target.classList.add("show");
+                if (entry.isIntersecting) {
 
-            }
+                    entry.target.classList.add("show");
 
+                }
+
+            });
+
+        }, {
+            threshold: 0.1
         });
+
+
+    animatedElements.forEach(function (element) {
+
+        observer.observe(element);
 
     });
 
-animatedElements.forEach(function (element) {
+} else {
 
-    observer.observe(element);
+    // Fallback for browsers without IntersectionObserver
 
-});
+    animatedElements.forEach(function (element) {
+
+        element.classList.add("show");
+
+    });
+
+}
+
 
 // ==========================================
 // 6. CONTACT FORM VALIDATION
 // ==========================================
+
 const contactForm =
-    document.getElementById("contactForm");
+    document.getElementById("contact-form");
 
-contactForm.addEventListener("submit", function (event) {
+const formMessage =
+    document.getElementById("form-message");
 
-    event.preventDefault();
 
-    const name =
-        document.getElementById("name").value.trim();
+if (contactForm) {
 
-    const email =
-        document.getElementById("email").value.trim();
+    contactForm.addEventListener("submit", function (event) {
 
-    const subject =
-        document.getElementById("subject").value.trim();
+        event.preventDefault();
 
-    const message =
-        document.getElementById("message").value.trim();
 
-    const nameError =
-        document.getElementById("nameError");
+        const name =
+            document.getElementById("name").value.trim();
 
-    const emailError =
-        document.getElementById("emailError");
+        const email =
+            document.getElementById("email").value.trim();
 
-    const subjectError =
-        document.getElementById("subjectError");
+        const subject =
+            document.getElementById("subject").value.trim();
 
-    const messageError =
-        document.getElementById("messageError");
+        const message =
+            document.getElementById("message").value.trim();
 
-    const successMessage =
-        document.getElementById("successMessage");
 
-    // Clear old messages
+        // Clear previous message
 
-    nameError.textContent = "";
+        if (formMessage) {
+            formMessage.textContent = "";
+        }
 
-    emailError.textContent = "";
 
-    subjectError.textContent = "";
+        // Check empty fields
 
-    messageError.textContent = "";
+        if (
+            name === "" ||
+            email === "" ||
+            subject === "" ||
+            message === ""
+        ) {
 
-    successMessage.textContent = "";
+            if (formMessage) {
 
-    let valid = true;
-    // NAME
-    if (name === "") {
+                formMessage.textContent =
+                    "Please fill in all fields.";
 
-        nameError.textContent =
-            "Please enter your name.";
+            }
 
-        valid = false;
+            return;
 
-    }
-    // EMAIL
-    if (email === "") {
+        }
 
-        emailError.textContent =
-            "Please enter your email.";
 
-        valid = false;
+        // Email validation
 
-    }
-    // SUBJECT
-    if (subject === "") {
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        subjectError.textContent =
-            "Please enter a subject.";
 
-        valid = false;
+        if (!emailPattern.test(email)) {
 
-    }
-    // MESSAGE
-    if (message === "") {
+            if (formMessage) {
 
-        messageError.textContent =
-            "Please enter your message.";
+                formMessage.textContent =
+                    "Please enter a valid email address.";
 
-        valid = false;
+            }
 
-    }
-    // SUCCESS
+            return;
 
-    if (valid) {
+        }
 
-        successMessage.textContent =
-            "Message submitted successfully!";
+
+        // Success
+
+        if (formMessage) {
+
+            formMessage.textContent =
+                "Thank you! Your message has been submitted.";
+
+        }
+
 
         contactForm.reset();
 
-    }
+    });
 
-});
+}
+
+
 // ==========================================
 // 7. BACK TO TOP
 // ==========================================
@@ -225,42 +249,58 @@ const backToTop =
     document.getElementById("backToTop");
 
 
-window.addEventListener("scroll", function () {
+if (backToTop) {
 
-    if (window.scrollY > 400) {
+    window.addEventListener("scroll", function () {
 
-        backToTop.classList.add("show");
+        if (window.scrollY > 400) {
 
-    } else {
+            backToTop.classList.add("show");
 
-        backToTop.classList.remove("show");
-    }
+        } else {
 
-});
-backToTop.addEventListener("click", function () {
+            backToTop.classList.remove("show");
 
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
+        }
 
     });
 
-});
+
+    backToTop.addEventListener("click", function () {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+}
+
 
 // ==========================================
 // 8. CURRENT YEAR
 // ==========================================
+
 const currentYear =
     document.getElementById("currentYear");
 
-currentYear.textContent =
-    new Date().getFullYear();
+
+if (currentYear) {
+
+    currentYear.textContent =
+        new Date().getFullYear();
+
+}
+
 
 // ==========================================
 // 9. JAVASCRIPT CHECK
 // ==========================================
+
 console.log(
-    "Module 3 + Module 4 JavaScript is working!"
+    "Module 4 + Module 5 JavaScript is working!"
 );
