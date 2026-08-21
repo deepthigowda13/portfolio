@@ -1,42 +1,46 @@
 // ==========================================
-// 1. MOBILE MENU
+// MODULE 6 - FINAL PORTFOLIO JAVASCRIPT
+// ==========================================
+
+
+// ==========================================
+// 1. ELEMENTS
 // ==========================================
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
+const themeBtn = document.getElementById("themeBtn");
+const contactForm = document.getElementById("contact-form");
+const formMessage = document.getElementById("form-message");
+const backToTop = document.getElementById("backToTop");
+const currentYear = document.getElementById("currentYear");
+
+
+// ==========================================
+// 2. MOBILE MENU
+// ==========================================
 
 if (menuBtn && navLinks) {
 
     menuBtn.addEventListener("click", function () {
 
-        navLinks.classList.toggle("active");
+        const isOpen =
+            navLinks.classList.toggle("active");
 
-    });
+        menuBtn.textContent =
+            isOpen ? "✕" : "☰";
 
-}
+        menuBtn.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
 
-
-// ==========================================
-// 2. DARK / LIGHT MODE
-// ==========================================
-
-const themeBtn = document.getElementById("themeBtn");
-
-if (themeBtn) {
-
-    themeBtn.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark");
-
-        if (document.body.classList.contains("dark")) {
-
-            themeBtn.textContent = "☀️";
-
-        } else {
-
-            themeBtn.textContent = "🌙";
-
-        }
+        menuBtn.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+        );
 
     });
 
@@ -47,14 +51,29 @@ if (themeBtn) {
 // 3. CLOSE MOBILE MENU
 // ==========================================
 
-const links = document.querySelectorAll(".nav-links a");
+const navItems =
+    document.querySelectorAll(".nav-links a");
 
-links.forEach(function (link) {
+navItems.forEach(function (link) {
 
     link.addEventListener("click", function () {
 
-        if (navLinks) {
+        if (navLinks && menuBtn) {
+
             navLinks.classList.remove("active");
+
+            menuBtn.textContent = "☰";
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuBtn.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
         }
 
     });
@@ -63,7 +82,87 @@ links.forEach(function (link) {
 
 
 // ==========================================
-// 4. SMOOTH SCROLLING
+// 4. DARK / LIGHT MODE
+// ==========================================
+
+function updateThemeButton() {
+
+    if (!themeBtn) {
+        return;
+    }
+
+    if (document.body.classList.contains("dark")) {
+
+        themeBtn.textContent = "☀️";
+
+        themeBtn.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+
+        themeBtn.setAttribute(
+            "title",
+            "Switch to light mode"
+        );
+
+    } else {
+
+        themeBtn.textContent = "🌙";
+
+        themeBtn.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+        themeBtn.setAttribute(
+            "title",
+            "Switch to dark mode"
+        );
+
+    }
+
+}
+
+
+// Load saved theme
+
+const savedTheme =
+    localStorage.getItem("portfolioTheme");
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark");
+
+}
+
+updateThemeButton();
+
+
+// Theme button
+
+if (themeBtn) {
+
+    themeBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark");
+
+        const isDark =
+            document.body.classList.contains("dark");
+
+        localStorage.setItem(
+            "portfolioTheme",
+            isDark ? "dark" : "light"
+        );
+
+        updateThemeButton();
+
+    });
+
+}
+
+
+// ==========================================
+// 5. SMOOTH SCROLLING
 // ==========================================
 
 const scrollLinks =
@@ -76,8 +175,10 @@ scrollLinks.forEach(function (link) {
         const sectionId =
             this.getAttribute("href");
 
-        // Ignore empty # links
-        if (!sectionId || sectionId === "#") {
+        if (
+            !sectionId ||
+            sectionId === "#"
+        ) {
             return;
         }
 
@@ -89,7 +190,8 @@ scrollLinks.forEach(function (link) {
             event.preventDefault();
 
             section.scrollIntoView({
-                behavior: "smooth"
+                behavior: "smooth",
+                block: "start"
             });
 
         }
@@ -100,7 +202,7 @@ scrollLinks.forEach(function (link) {
 
 
 // ==========================================
-// 5. SCROLL ANIMATION
+// 6. SCROLL ANIMATION
 // ==========================================
 
 const animatedElements =
@@ -109,21 +211,28 @@ const animatedElements =
 if ("IntersectionObserver" in window) {
 
     const observer =
-        new IntersectionObserver(function (entries) {
+        new IntersectionObserver(
+            function (entries) {
 
-            entries.forEach(function (entry) {
+                entries.forEach(function (entry) {
 
-                if (entry.isIntersecting) {
+                    if (entry.isIntersecting) {
 
-                    entry.target.classList.add("show");
+                        entry.target.classList.add("show");
 
-                }
+                        observer.unobserve(
+                            entry.target
+                        );
 
-            });
+                    }
 
-        }, {
-            threshold: 0.1
-        });
+                });
+
+            },
+            {
+                threshold: 0.1
+            }
+        );
 
 
     animatedElements.forEach(function (element) {
@@ -133,8 +242,6 @@ if ("IntersectionObserver" in window) {
     });
 
 } else {
-
-    // Fallback for browsers without IntersectionObserver
 
     animatedElements.forEach(function (element) {
 
@@ -146,148 +253,172 @@ if ("IntersectionObserver" in window) {
 
 
 // ==========================================
-// 6. CONTACT FORM VALIDATION
+// 7. CONTACT FORM VALIDATION
 // ==========================================
-
-const contactForm =
-    document.getElementById("contact-form");
-
-const formMessage =
-    document.getElementById("form-message");
-
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", function (event) {
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
 
-        event.preventDefault();
-
-
-        const name =
-            document.getElementById("name").value.trim();
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const subject =
-            document.getElementById("subject").value.trim();
-
-        const message =
-            document.getElementById("message").value.trim();
+            event.preventDefault();
 
 
-        // Clear previous message
+            const name =
+                document.getElementById("name").value.trim();
 
-        if (formMessage) {
-            formMessage.textContent = "";
-        }
+            const email =
+                document.getElementById("email").value.trim();
+
+            const subject =
+                document.getElementById("subject").value.trim();
+
+            const message =
+                document.getElementById("message").value.trim();
 
 
-        // Check empty fields
-
-        if (
-            name === "" ||
-            email === "" ||
-            subject === "" ||
-            message === ""
-        ) {
+            // Clear old message
 
             if (formMessage) {
 
-                formMessage.textContent =
-                    "Please fill in all fields.";
+                formMessage.textContent = "";
+
+                formMessage.className =
+                    "form-message";
 
             }
 
-            return;
 
-        }
+            // Empty field validation
 
+            if (
+                name === "" ||
+                email === "" ||
+                subject === "" ||
+                message === ""
+            ) {
 
-        // Email validation
+                showFormMessage(
+                    "Please fill in all fields.",
+                    "error"
+                );
 
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-        if (!emailPattern.test(email)) {
-
-            if (formMessage) {
-
-                formMessage.textContent =
-                    "Please enter a valid email address.";
+                return;
 
             }
 
-            return;
+
+            // Email validation
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (!emailPattern.test(email)) {
+
+                showFormMessage(
+                    "Please enter a valid email address.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            // Minimum message length
+
+            if (message.length < 10) {
+
+                showFormMessage(
+                    "Please enter a message with at least 10 characters.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            // Successful front-end validation
+
+            showFormMessage(
+                "Thank you! Your message has been submitted successfully.",
+                "success"
+            );
+
+
+            contactForm.reset();
 
         }
-
-
-        // Success
-
-        if (formMessage) {
-
-            formMessage.textContent =
-                "Thank you! Your message has been submitted.";
-
-        }
-
-
-        contactForm.reset();
-
-    });
+    );
 
 }
 
 
 // ==========================================
-// 7. BACK TO TOP
+// FORM MESSAGE FUNCTION
 // ==========================================
 
-const backToTop =
-    document.getElementById("backToTop");
+function showFormMessage(text, type) {
 
+    if (!formMessage) {
+        return;
+    }
+
+    formMessage.textContent = text;
+
+    formMessage.classList.add(type);
+
+}
+
+
+// ==========================================
+// 8. BACK TO TOP
+// ==========================================
 
 if (backToTop) {
 
-    window.addEventListener("scroll", function () {
+    window.addEventListener(
+        "scroll",
+        function () {
 
-        if (window.scrollY > 400) {
+            if (window.scrollY > 400) {
 
-            backToTop.classList.add("show");
+                backToTop.classList.add("show");
 
-        } else {
+            } else {
 
-            backToTop.classList.remove("show");
+                backToTop.classList.remove("show");
+
+            }
 
         }
+    );
 
-    });
 
+    backToTop.addEventListener(
+        "click",
+        function () {
 
-    backToTop.addEventListener("click", function () {
+            window.scrollTo({
 
-        window.scrollTo({
+                top: 0,
 
-            top: 0,
+                behavior: "smooth"
 
-            behavior: "smooth"
+            });
 
-        });
-
-    });
+        }
+    );
 
 }
 
 
 // ==========================================
-// 8. CURRENT YEAR
+// 9. CURRENT YEAR
 // ==========================================
-
-const currentYear =
-    document.getElementById("currentYear");
-
 
 if (currentYear) {
 
@@ -298,9 +429,43 @@ if (currentYear) {
 
 
 // ==========================================
-// 9. JAVASCRIPT CHECK
+// 10. ESC KEY - CLOSE MOBILE MENU
+// ==========================================
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape" &&
+            navLinks &&
+            menuBtn
+        ) {
+
+            navLinks.classList.remove("active");
+
+            menuBtn.textContent = "☰";
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuBtn.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+        }
+
+    }
+);
+
+
+// ==========================================
+// 11. JAVASCRIPT STATUS
 // ==========================================
 
 console.log(
-    "Module 4 + Module 5 JavaScript is working!"
+    "Portfolio website JavaScript loaded successfully."
 );
