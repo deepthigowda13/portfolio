@@ -2,715 +2,614 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Deepthi R - Computer Science and Engineering student portfolio showcasing skills, education, projects and web development experience.">
+
+    <meta name="author" content="Deepthi R">
 
     <title>Deepthi R | CSE Portfolio</title>
 
-    <link rel="stylesheet"
-          href="style.css">
-
     <!-- Font Awesome -->
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- ================= NAVIGATION ================= -->
 
-<!-- =====================================
-     NAVIGATION
-===================================== -->
+    <header class="header">
 
-<header class="header">
+        <nav class="navbar">
 
-    <nav class="navbar">
+            <a href="#home" class="logo">Deepthi R</a>
 
-        <div class="logo">
-            Deepthi R
-        </div>
+            <ul class="nav-links" id="navLinks">
 
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
 
-        <ul class="nav-links" id="navLinks">
+            </ul>
 
-            <li>
-                <a href="#home">Home</a>
-            </li>
+            <div class="nav-buttons">
 
-            <li>
-                <a href="#about">About</a>
-            </li>
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                    type="button"
+                    aria-label="Switch to dark mode"
+                    title="Toggle dark mode">
+                    🌙
+                </button>
 
-            <li>
-                <a href="#education">Education</a>
-            </li>
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
+                    ☰
+                </button>
 
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
+            </div>
 
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
+        </nav>
 
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
+    </header>
 
-        </ul>
 
+    <!-- ================= HOME ================= -->
 
-        <div class="nav-buttons">
+    <main>
 
-            <!-- Dark / Light Mode -->
-            <button class="theme-btn"
-                    id="themeBtn">
-                🌙
-            </button>
+        <section id="home" class="home">
 
+            <div class="home-content animate-on-scroll">
 
-            <!-- Mobile Menu -->
-            <button class="menu-btn"
-                    id="menuBtn">
-                ☰
-            </button>
+                <p class="intro">Hello, I'm</p>
 
-        </div>
+                <h1>Deepthi R</h1>
 
-    </nav>
+                <h2>Computer Science &amp; Engineering Student</h2>
 
-</header>
-
-
-
-<!-- =====================================
-     HOME
-===================================== -->
-
-<section id="home"
-         class="home">
-
-
-    <div class="home-content animate-on-scroll">
-
-        <p class="intro">
-            Hello, I'm
-        </p>
-
-
-        <h1>
-            Deepthi R
-        </h1>
-
-
-        <h2>
-            Computer Science & Engineering Student
-        </h2>
-
-
-        <p class="description">
-            Passionate about Web Development,
-            Software Engineering and Problem Solving.
-            Currently building modern websites and
-            continuously improving my technical skills.
-        </p>
-
-
-        <div class="home-buttons">
-
-            <a href="#projects"
-               class="btn">
-                <i class="fa-solid fa-code"></i>
-                View Projects
-            </a>
-
-
-            <a href="#contact"
-               class="btn">
-                <i class="fa-solid fa-envelope"></i>
-                Contact Me
-            </a>
-
-
-            <!-- MODULE 4: RESUME -->
-            <a href="resume.pdf"
-               class="btn"
-               download>
-
-                <i class="fa-solid fa-file-arrow-down"></i>
-                Download Resume
-
-            </a>
-
-        </div>
-
-
-        <div class="social-links">
-
-            <a href="#"
-               aria-label="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-
-
-            <a href="#"
-               aria-label="LinkedIn">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PROFILE IMAGE -->
-
-    <div class="profile-container animate-on-scroll">
-
-        <img src="images/photo.jpeg"
-             alt="Deepthi R Profile Photo"
-             class="profile-image">
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================
-     ABOUT
-===================================== -->
-
-<section id="about"
-         class="section">
-
-
-    <div class="section-title animate-on-scroll">
-
-        <h2>
-            About Me
-        </h2>
-
-    </div>
-
-
-    <div class="about-content">
-
-
-        <div class="about-text animate-on-scroll">
-
-            <p>
-                I am Deepthi R, a Computer Science
-                and Engineering student with a strong
-                interest in Web Development and
-                Software Engineering.
-            </p>
-
-            <p>
-                I enjoy learning new technologies,
-                developing websites and improving
-                my programming skills through
-                practical projects.
-            </p>
-
-            <a href="resume.pdf"
-               class="btn"
-               download>
-
-                <i class="fa-solid fa-download"></i>
-                Download Resume
-
-            </a>
-
-        </div>
-
-
-        <div class="about-info animate-on-scroll">
-
-
-            <div class="info-box">
-
-                <h3>
-                    Career Goal
-                </h3>
-
-                <p>
-                    To become a skilled Web Developer
-                    and build useful and user-friendly
-                    web applications.
+                <p class="description">
+                    Passionate about Web Development, Software Engineering
+                    and Problem Solving. Currently building modern websites
+                    and continuously improving my technical skills.
                 </p>
+
+                <div class="home-buttons">
+
+                    <a href="#projects" class="btn">
+                        <i class="fa-solid fa-code"></i>
+                        View Projects
+                    </a>
+
+                    <a href="#contact" class="btn">
+                        <i class="fa-solid fa-envelope"></i>
+                        Contact Me
+                    </a>
+
+                    <a href="resume.pdf"
+                        class="btn"
+                        download>
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        Download Resume
+                    </a>
+
+                </div>
+
+                <div class="social-links">
+
+                    <a href="https://github.com/deepthigowda13"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/deepthi-r-68207233b/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                </div>
 
             </div>
 
 
-            <div class="info-box">
+            <div class="profile-container animate-on-scroll">
 
-                <h3>
-                    Interests
-                </h3>
+                <img
+                    src="images/photo.jpeg"
+                    alt="Deepthi R profile photo"
+                    class="profile-image"
+                    loading="lazy">
 
-                <p>
-                    Web Development, Programming,
-                    Software Development and
-                    Problem Solving.
-                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about" class="section">
+
+            <div class="section-title animate-on-scroll">
+
+                <h2>About Me</h2>
 
             </div>
 
 
-        </div>
+            <div class="about-content">
 
-    </div>
+                <div class="about-text animate-on-scroll">
 
-</section>
+                    <p>
+                        I am Deepthi R, a Computer Science and Engineering
+                        student with a strong interest in Web Development
+                        and Software Engineering.
+                    </p>
+
+                    <p>
+                        I enjoy learning new technologies, developing
+                        websites and improving my programming skills
+                        through practical projects.
+                    </p>
+
+                    <a href="resume.pdf"
+                        class="btn"
+                        download>
+
+                        <i class="fa-solid fa-download"></i>
+                        Download Resume
+
+                    </a>
+
+                </div>
 
 
+                <div class="about-info animate-on-scroll">
 
-<!-- =====================================
-     MODULE 4
-     EDUCATION
-===================================== -->
+                    <div class="info-box">
 
-<section id="education"
-         class="section education-section">
+                        <h3>Career Goal</h3>
+
+                        <p>
+                            To become a skilled Web Developer and build
+                            useful and user-friendly web applications.
+                        </p>
+
+                    </div>
 
 
-    <div class="section-title animate-on-scroll">
+                    <div class="info-box">
 
-        <h2>
-            Education
-        </h2>
+                        <h3>Interests</h3>
+
+                        <p>
+                            Web Development, Programming, Software
+                            Development and Problem Solving.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EDUCATION ================= -->
+
+        <section id="education"
+            class="section education-section">
+
+            <div class="section-title animate-on-scroll">
+
+                <h2>Education</h2>
+
+            </div>
+
+
+            <div class="education-container">
+
+                <div class="education-card animate-on-scroll">
+
+                    <div class="education-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>Bachelor of Engineering</h3>
+
+                        <h4>
+                            Computer Science and Engineering
+                        </h4>
+
+                        <p>
+                            PES Institute of Technology and Management
+                            (PESITM), Shivamogga
+                        </p>
+
+                        <p>
+                            Currently pursuing 3rd year Engineering
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="education-card animate-on-scroll">
+
+                    <div class="education-icon">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>Pre-University Education</h3>
+
+                        <p>
+                            Completed higher secondary education
+                            before pursuing engineering.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section id="skills"
+            class="section skills-section">
+
+            <div class="section-title animate-on-scroll">
+
+                <h2>My Skills</h2>
+
+            </div>
+
+
+            <div class="skills-container">
+
+                <div class="skill-card animate-on-scroll">
+
+                    <i class="fa-brands fa-html5"></i>
+
+                    <h3>HTML</h3>
+
+                    <p>
+                        Creating the structure of websites
+                        using semantic HTML.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card animate-on-scroll">
+
+                    <i class="fa-brands fa-css3-alt"></i>
+
+                    <h3>CSS</h3>
+
+                    <p>
+                        Designing responsive and attractive
+                        web pages.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card animate-on-scroll">
+
+                    <i class="fa-brands fa-js"></i>
+
+                    <h3>JavaScript</h3>
+
+                    <p>
+                        Adding interactive features and
+                        dynamic behaviour.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card animate-on-scroll">
+
+                    <i class="fa-solid fa-database"></i>
+
+                    <h3>SQL</h3>
+
+                    <p>
+                        Learning databases and SQL queries.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section id="projects"
+            class="section projects-section">
+
+            <div class="section-title animate-on-scroll">
+
+                <h2>My Projects</h2>
+
+            </div>
+
+
+            <div class="projects-container">
+
+                <div class="project-card animate-on-scroll">
+
+                    <div class="project-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                    <h3>Personal Portfolio Website</h3>
+
+                    <p>
+                        A responsive personal portfolio website created
+                        to showcase my profile, skills, education,
+                        projects and contact details.
+                    </p>
+
+                    <div class="project-tech">
+                        HTML | CSS | JavaScript
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="https://github.com/deepthigowda13/portfolio"
+                            class="project-btn"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+
+                        </a>
+
+                        <a href="https://deepthigowda13.github.io/portfolio/"
+                            class="project-btn live-btn">
+
+                            <i class="fa-solid fa-globe"></i>
+                            Live Demo
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact"
+            class="section contact-section">
+
+            <div class="section-title animate-on-scroll">
+
+                <h2>Contact Me</h2>
+            </div>
+
+
+            <div class="contact-container">
+
+                <div class="contact-info animate-on-scroll">
+
+                    <div class="contact-item">
+
+                        <i class="fas fa-envelope"></i>
+
+                        <div>
+
+                            <h4>Email</h4>
+
+                            <a href="mailto:deepthigowda312@gmail.com">
+                                 view email
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <i class="fab fa-linkedin"></i>
+
+                        <div>
+
+                            <h4>LinkedIn</h4>
+
+                            <a
+                                href="https://www.linkedin.com/in/deepthi-r-68207233b/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+
+                                View LinkedIn Profile
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <i class="fab fa-github"></i>
+
+                        <div>
+
+                            <h4>GitHub</h4>
+
+                            <a
+                                href="https://github.com/deepthigowda13"
+                                target="_blank"
+                                rel="noopener noreferrer">
+
+                                View GitHub Profile
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <form
+                    class="contact-form animate-on-scroll"
+                    id="contact-form"
+                    novalidate>
+
+                    <div class="form-group">
+
+                        <label for="name">Name</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            autocomplete="name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">Email</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="subject">Subject</label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Enter subject"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">Message</label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Write your message..."
+                            required></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn">
+
+                        Send Message
+                        <i class="fas fa-paper-plane"></i>
+
+                    </button>
+
+                    <p
+                        id="form-message"
+                        class="form-message"
+                        role="status"
+                        aria-live="polite">
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
 
         <p>
-            My academic journey
+            &copy;
+            <span id="currentYear"></span>
+            Deepthi R. 
         </p>
 
-    </div>
+    </footer>
 
 
-    <div class="education-container">
+    <!-- ================= BACK TO TOP ================= -->
 
+    <button
+        id="backToTop"
+        class="back-to-top"
+        type="button"
+        aria-label="Back to top"
+        title="Back to top">
 
-        <!-- Education 1 -->
+        ↑
 
-        <div class="education-card animate-on-scroll">
+    </button>
 
-            <div class="education-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
-            </div>
 
-
-            <div>
-
-                <h3>
-                    Bachelor of Engineering
-                </h3>
-
-                <h4>
-                    Computer Science and Engineering
-                </h4>
-
-                <p>
-                    PES Institute of Technology and
-                    Management (PESITM), Shivamogga
-                </p>
-
-                <p>
-                    Currently pursuing 3rd Year
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- Education 2 -->
-
-        <div class="education-card animate-on-scroll">
-
-            <div class="education-icon">
-                <i class="fa-solid fa-school"></i>
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Pre-University Education
-                </h3>
-
-                <p>
-                    Completed higher secondary education
-                    before pursuing engineering.
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================
-     SKILLS
-===================================== -->
-
-<section id="skills"
-         class="section skills-section">
-
-
-    <div class="section-title animate-on-scroll">
-
-        <h2>
-            My Skills
-        </h2>
-
-    </div>
-
-
-    <div class="skills-container">
-
-
-        <div class="skill-card animate-on-scroll">
-
-            <i class="fa-brands fa-html5"></i>
-
-            <h3>
-                HTML
-            </h3>
-
-            <p>
-                Creating the structure of websites
-                using HTML.
-            </p>
-
-        </div>
-
-
-        <div class="skill-card animate-on-scroll">
-
-            <i class="fa-brands fa-css3-alt"></i>
-
-            <h3>
-                CSS
-            </h3>
-
-            <p>
-                Designing responsive and attractive
-                web pages.
-            </p>
-
-        </div>
-
-
-        <div class="skill-card animate-on-scroll">
-
-            <i class="fa-brands fa-js"></i>
-
-            <h3>
-                JavaScript
-            </h3>
-
-            <p>
-                Adding interactive features and
-                dynamic behaviour.
-            </p>
-
-        </div>
-
-
-        <div class="skill-card animate-on-scroll">
-
-            <i class="fa-solid fa-database"></i>
-
-            <h3>
-                SQL
-            </h3>
-
-            <p>
-                Learning databases and SQL queries.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================
-     MODULE 4
-     PROJECTS
-===================================== -->
-
-<section id="projects"
-         class="section projects-section">
-
-
-    <div class="section-title animate-on-scroll">
-
-        <h2>
-            My Projects
-        </h2>
-    </div>
-
-
-    <div class="projects-container">
-
-
-        <!-- PROJECT 1 -->
-
-        <div class="project-card animate-on-scroll">
-
-
-            <div class="project-icon">
-                <i class="fa-solid fa-laptop-code"></i>
-            </div>
-
-
-            <h3>
-                Personal Portfolio Website
-            </h3>
-
-
-            <p>
-                A responsive personal portfolio website
-                created to showcase my profile, skills,
-                education, projects and contact details.
-            </p>
-
-
-            <div class="project-tech">
-                HTML | CSS | JavaScript
-            </div>
-
-
-            <div class="project-buttons">
-
-                <a href="https://github.com/deepthigowda13/portfolio.git"
-                   class="project-btn"
-                   target="_blank">
-
-                    <i class="fa-brands fa-github"></i>
-                    GitHub
-
-                </a>
-
-                <a href="http://127.0.0.1:5500/index.html"
-                   class="project-btn live-btn"
-                   target="_blank">
-
-                    <i class="fa-solid fa-globe"></i>
-                    Live Demo
-
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================
-     CONTACT
-===================================== -->
-
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="section contact-section">
-
-    <div class="section-title">
-        <h2>Contact Me</h2>
-    </div>
-
-    <div class="contact-container">
-
-        <!-- CONTACT INFORMATION -->
-        <div class="contact-info">
-
-            <!-- EMAIL -->
-            <div class="contact-item">
-
-                <i class="fas fa-envelope"></i>
-
-                <div>
-                    <h4>Email</h4>
-
-                    <a href="mailto:deepthigowda3122gmail.com">
-                        deepthigowda312@gmail.com
-                    </a>
-                </div>
-
-            </div>
-
-
-            <!-- LINKEDIN -->
-            <div class="contact-item">
-
-                <i class="fab fa-linkedin"></i>
-
-                <div>
-                    <h4>LinkedIn</h4>
-
-                    <a href="https://www.linkedin.com/in/deepthi-r-68207233b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-                       target="_blank"
-                       rel="noopener noreferrer">
-
-                        View LinkedIn Profile
-
-                    </a>
-                </div>
-
-            </div>
-
-
-            <!-- GITHUB -->
-            <div class="contact-item">
-
-                <i class="fab fa-github"></i>
-
-                <div>
-                    <h4>GitHub</h4>
-
-                    <a href="https://github.com/deepthigowda13/portfolio.git"
-                       target="_blank"
-                       rel="noopener noreferrer">
-
-                        View GitHub Profile
-
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CONTACT FORM -->
-        <form class="contact-form" id="contact-form">
-
-            <div class="form-group">
-
-                <label for="name">Name</label>
-
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your name"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="email">Email</label>
-
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="subject">Subject</label>
-
-                <input
-                    type="text"
-                    id="subject"
-                    placeholder="Enter subject"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="message">Message</label>
-
-                <textarea
-                    id="message"
-                    rows="6"
-                    placeholder="Write your message..."
-                    required
-                ></textarea>
-
-            </div>
-
-
-            <button type="submit" class="btn">
-
-                Send Message
-                <i class="fas fa-paper-plane"></i>
-
-            </button>
-
-            <p id="form-message"></p>
-
-        </form>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================
-     FOOTER
-===================================== -->
-
-<footer class="footer">
-
-    <p>
-        © <span id="currentYear"></span>
-        Deepthi R. All Rights Reserved.
-    </p>
-
-</footer>
-
-
-
-<!-- =====================================
-     BACK TO TOP
-===================================== -->
-
-<button id="backToTop"
-        class="back-to-top">
-
-    ↑
-
-</button>
-
-
-
-<!-- JavaScript -->
-
-<script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 
